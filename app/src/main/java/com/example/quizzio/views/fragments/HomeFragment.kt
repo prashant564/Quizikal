@@ -1,4 +1,4 @@
-package com.example.quizzio
+package com.example.quizzio.views.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
+import com.example.quizzio.views.viewmodels.HomeViewModel
 import com.example.quizzio.databinding.HomeFragmentBinding
 
 

@@ -39,6 +39,7 @@ interface TriviaApiService {
     fun getAllTrivia(@Query("category") type: String):
     // The Coroutine Call Adapter allows us to return a Deferred, a Job with a result
             Deferred<List<TriviaUI>>
+
 }
 
 object TriviaApi {

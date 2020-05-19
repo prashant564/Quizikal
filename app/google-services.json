@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "848249745797",
+    "firebase_url": "https://quizikal-5a25d.firebaseio.com",
+    "project_id": "quizikal-5a25d",
+    "storage_bucket": "quizikal-5a25d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848249745797:android:4b6fba59b3c496475b94ec",
+        "android_client_info": {
+          "package_name": "com.example.quizzio"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "848249745797-5l0qpnmrs92165k2jlureee4t1p524ek.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.quizzio",
+            "certificate_hash": "7d5462e0a0e25a9cbd5ab895106563ca2a48f3b3"
+          }
+        },
+        {
+          "client_id": "848249745797-60evut6490mglougprfuj5t5ghbtakd4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvC1jod6l9xRwUx6aTg5xXtTnP83ywWGU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "848249745797-60evut6490mglougprfuj5t5ghbtakd4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

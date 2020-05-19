@@ -6,12 +6,12 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.quizzio.HomeViewModel" />
+            type="com.example.quizzio.views.viewmodels.HomeViewModel" />
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeFragment">
+    tools:context=".views.fragments.HomeFragment">
 
     <TextView
         android:id="@+id/tv_details"

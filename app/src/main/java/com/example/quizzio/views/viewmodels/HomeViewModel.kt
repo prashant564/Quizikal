@@ -1,4 +1,4 @@
-package com.example.quizzio
+package com.example.quizzio.views.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
