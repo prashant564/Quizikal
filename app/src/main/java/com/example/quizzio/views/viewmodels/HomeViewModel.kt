@@ -1,28 +1,24 @@
 package com.example.quizzio.views.viewmodels
 
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.quizzio.network.TriviaApi
 import com.example.quizzio.network.TriviaUI
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
-class HomeViewModel : ViewModel() {
-
-    private val _properties = MutableLiveData<List<TriviaUI>>()
-
-    // The external LiveData interface to the property is immutable, so only this class can modify
-    val properties: LiveData<List<TriviaUI>>
-        get() = _properties
-    // Create a Coroutine scope using a job to be able to cancel when needed
+class HomeViewModel : ViewModel(){
     private var viewModelJob = Job()
-
-    // the Coroutine runs using the Main (UI) dispatcher
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
 
+    private val _properties = MutableLiveData<List<TriviaUI>>()
+    val properties: LiveData<List<TriviaUI>>
+        get() = _properties
 
     init {
         getTriviaByCategory("Entertainment")
