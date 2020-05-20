@@ -17,7 +17,7 @@
         android:id="@+id/tv_details"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@{viewModel.properties.toString()}"
+        android:text="@{viewModel.allTrivia.data.toString()}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

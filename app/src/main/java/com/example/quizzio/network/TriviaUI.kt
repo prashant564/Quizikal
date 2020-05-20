@@ -1,20 +1,21 @@
 package com.example.quizzio.network
 
 import android.os.Parcelable
-import com.squareup.moshi.Json
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
+@Entity(tableName = "trivia")
 data class TriviaUI(
-    @Json(name = "_id")
+    @SerializedName("_id")
+    @PrimaryKey
     val id:String,
     val seenStatus:Boolean,
     val category:String,
     val question:String,
     val answer:String,
-    @Json(name = "itemid")
+    @SerializedName("itemid")
     val itemId: String
-//    val id: String,
-//    // used to map img_src from the JSON to imgSrcUrl in our class
-//    @Json(name = "img_src") val imgSrcUrl: String,
-//    val type: String,
-//    val price: Double
-    )
+    ): Parcelable
