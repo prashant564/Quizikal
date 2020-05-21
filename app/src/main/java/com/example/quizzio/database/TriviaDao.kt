@@ -2,7 +2,7 @@ package com.example.quizzio.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.quizzio.network.TriviaUI
+import com.example.quizzio.views.ui.TriviaUI
 
 @Dao
 interface TriviaDao {

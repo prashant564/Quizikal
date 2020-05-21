@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.example.quizzio.R
 import com.example.quizzio.database.TriviaDatabase
 import com.example.quizzio.databinding.HomeFragmentBinding
 import com.example.quizzio.repository.TriviaRepository
@@ -25,7 +26,7 @@ class HomeFragment : Fragment() {
 
     private val viewModel by lazy {
         val repository = TriviaRepository(TriviaDatabase.invoke(this.context))
-        val factory = TriviaViewModelFactory(repository)
+        val factory = TriviaViewModelFactory(repository, getString(R.string.entertainment))
         ViewModelProviders.of(this, factory).get(HomeViewModel::class.java)
     }
 

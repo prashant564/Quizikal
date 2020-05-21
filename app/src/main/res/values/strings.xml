@@ -1,4 +1,25 @@
 <resources>
     <string name="app_name">Quizzio</string>
     <string name="something_went_wrong">Something went wrong. Please try after some time</string>
+
+    // Category
+    <string name="general">General</string>
+    <string name="sports_and_leisure">Sports and Leisure</string>
+    <string name="music">Music</string>
+    <string name="history_and_holidays">History and Holidays</string>
+    <string name="food_and_drink">Food and Drink</string>
+    <string name="toys_and_games">Toys and Games</string>
+    <string name="science_and_nature">Science and Nature</string>
+    <string name="people_and_places">People and Places</string>
+    <string name="language">Language</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="kids">Kids</string>
+    <string name="religion_and_mythology">Religion and Mythology</string>
+    <string name="art_and_literature">Art and Literature</string>
+    <string name="tech_and_video_games">Tech and Video Games</string>
+    <string name="mathematics">Mathematics</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

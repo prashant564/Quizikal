@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
-import com.example.quizzio.views.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class SplashActivity : AppCompatActivity() {
@@ -16,7 +15,8 @@ class SplashActivity : AppCompatActivity() {
             if(FirebaseAuth.getInstance().currentUser==null){
                 intent = Intent(this,SignInActivity::class.java)
             }else{
-                intent = Intent(this,MainActivity::class.java)
+                intent = Intent(this,
+                    MainActivity::class.java)
             }
             startActivity(intent)
             finish()

@@ -1,4 +1,4 @@
-package com.example.quizzio.network
+package com.example.quizzio.views.ui
 
 import android.os.Parcelable
 import androidx.room.Entity

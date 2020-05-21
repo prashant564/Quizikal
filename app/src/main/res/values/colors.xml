@@ -3,4 +3,21 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    // Category
+    <color name="entertainment">#E91E63</color>
+    <color name="general">#1DA427</color>
+    <color name="sports_and_leisure">#FF9500</color>
+    <color name="music">#1DA427</color>
+    <color name="history_and_holidays">#4CD964</color>
+    <color name="food_and_drink">#FF3B30</color>
+    <color name="toys_and_games">#512DA8</color>
+    <color name="science_and_nature">#E91E63</color>
+    <color name="people_and_places">#833AB4</color>
+    <color name="language">#E1306C</color>
+    <color name="kids">#F56040</color>
+    <color name="religion_and_mythology">#FCAF45</color>
+    <color name="art_and_literature">#512DA8</color>
+    <color name="tech_and_video_games">#1DA427</color>
+    <color name="mathematics">#FCAF45</color>
 </resources>
