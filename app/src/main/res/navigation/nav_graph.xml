@@ -3,10 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/entertainmentFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
-        android:id="@+id/entertainmentFragment"
-        android:name="com.example.quizzio.views.fragments.EntertainmentFragment"
-        android:label="fragment_entertainment"
-        tools:layout="@layout/fragment_entertainment" />
+        android:id="@+id/homeFragment"
+        android:name="com.example.quizzio.views.fragments.HomeFragment"
+        android:label="HomeFragment" />
 </navigation>

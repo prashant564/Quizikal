@@ -29,10 +29,13 @@ class CategoryItemAdapter(var listener: RecyclerItemClickListener) :
 
     class CategoryItemViewHolder private constructor(val view: View):RecyclerView.ViewHolder(view) {
         fun bind(categoryItem: CategoryItem, listener: RecyclerItemClickListener) {
-            view.tv_title.text = categoryItem.tag
+
+            view.tv_title.text = categoryItem.title
             view.iv_icon.setImageDrawable(ResourceUtils.toDrawable(AppUtils.getDrawableIdFromCategoryType(categoryItem.itemType)))
             val background = view.cv_main.background as GradientDrawable
-            background.setColor(categoryItem.itemType.color)
+            background.setColor(ResourceUtils.toColor(categoryItem.itemType.color))
+
+            view.cv_main.tag = categoryItem
             view.cv_main.setOnClickListener {
                 listener.onItemClick(it)
             }

@@ -14,9 +14,9 @@
     <string name="language">Language</string>
     <string name="entertainment">Entertainment</string>
     <string name="kids">Kids</string>
-    <string name="religion_and_mythology">Religion and Mythology</string>
+    <string name="religion_and_mythology">Mythology</string>
     <string name="art_and_literature">Art and Literature</string>
-    <string name="tech_and_video_games">Tech and Video Games</string>
+    <string name="tech_and_video_games">Technology</string>
     <string name="mathematics">Mathematics</string>
 
     <!-- TODO: Remove or change this placeholder text -->

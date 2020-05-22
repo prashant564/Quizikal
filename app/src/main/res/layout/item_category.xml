@@ -6,12 +6,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:padding="6dp"
     android:layout_marginBottom="2dp"
+    style="@style/cv_main"
     android:elevation="4dp"
     android:id="@+id/cv_main"
     android:background="@drawable/button_rectangular">
 
     <TextView
         android:id="@+id/tv_title"
+        style="@style/tv_main_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:maxLines="1"
@@ -24,8 +26,8 @@
 
     <ImageView
         android:id="@+id/iv_icon"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         app:layout_constraintEnd_toEndOf="@+id/tv_title"
         app:layout_constraintStart_toStartOf="@+id/tv_title"
         app:layout_constraintTop_toTopOf="parent"
