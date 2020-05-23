@@ -1,4 +1,4 @@
-package com.example.quizzio.utils
+package com.example.quizzio.network
 
 // exposing network status
 sealed class Resource<out T>(val data: T? = null,
