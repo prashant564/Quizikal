@@ -6,6 +6,27 @@ import com.example.quizzio.views.ui.CategoryItemType
 
 object AppUtils {
 
+    fun getColorIdFromCategoryType(category: String):Int{
+        return when(category){
+            "Entertainment"-> R.color.entertainment
+            "Tech and Video Games"-> R.color.tech_and_video_games
+            "Art and Literature"-> R.color.art_and_literature
+            "General"-> R.color.general
+            "History and Holidays"-> R.color.history_and_holidays
+            "Kids"-> R.color.kids
+            "Language"-> R.color.language
+            "Mathematics"-> R.color.mathematics
+            "Music"-> R.color.music
+            "People and Places"-> R.color.people_and_places
+            "Science and Nature"-> R.color.science_and_nature
+            "Sports and Leisure"-> R.color.sports_and_leisure
+            "Toys and Games"-> R.color.toys_and_games
+            "Religion and Mythology"-> R.color.religion_and_mythology
+            else->R.color.tech_and_video_games
+        }
+    }
+
+
     fun getDrawableIdFromCategoryType(featureType:CategoryItemType):Int{
         return when(featureType){
             CategoryItemType.CATEGORY_ENTERTAINMENT->{

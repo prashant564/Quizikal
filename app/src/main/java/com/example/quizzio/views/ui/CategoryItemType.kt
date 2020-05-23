@@ -8,7 +8,7 @@ import kotlinx.android.parcel.Parcelize
 enum class CategoryItemType constructor(var type :String, var color: Int):Parcelable {
     CATEGORY_ENTERTAINMENT( "entertainment", R.color.entertainment),
     CATEGORY_MUSIC("art_and_literature",R.color.art_and_literature),
-    CATEGORY_FOOD_AND_DRINK("food_and_drink",R.color.food_and_drink),
+    CATEGORY_FOOD_AND_DRINK("food_and_drinks",R.color.food_and_drink),
     CATEGORY_GENERAL("general",R.color.general),
     CATEGORY_HISTORY_AND_HOLIDAYS("history_and_holidays",R.color.history_and_holidays),
     CATEGORY_KIDS("kids",R.color.kids),

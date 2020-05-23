@@ -1,5 +1,6 @@
 package com.example.quizzio.views.adapters
 
+import android.graphics.drawable.GradientDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,6 +32,8 @@ class TriviaListAdapter(var listener: RecyclerItemClickListener):
             view.tv_question.text = item.question
             view.tv_category.text = item.category
 
+            val background = view.cv_main.background as GradientDrawable
+            background.setColor(ResourceUtils.toColor(AppUtils.getColorIdFromCategoryType(item.category)))
             view.cv_main.tag = item
             view.cv_main.setOnClickListener {
                 listener.onItemClick(it)

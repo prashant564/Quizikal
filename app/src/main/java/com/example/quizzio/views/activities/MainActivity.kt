@@ -43,11 +43,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun createList() {
         val categoryList = ArrayList<CategoryItem>()
-
         categoryList.add(CategoryItem(getString(R.string.entertainment),CategoryItemType.CATEGORY_ENTERTAINMENT,AppConstants.CategoryTag.Entertainment))
         categoryList.add(CategoryItem(getString(R.string.music),CategoryItemType.CATEGORY_MUSIC,AppConstants.CategoryTag.Music))
         categoryList.add(CategoryItem(getString(R.string.art_and_literature),CategoryItemType.CATEGORY_ART_AND_LITERATURE,AppConstants.CategoryTag.ArtAndLiterature))
-        categoryList.add(CategoryItem(getString(R.string.food_and_drink),CategoryItemType.CATEGORY_FOOD_AND_DRINK,AppConstants.CategoryTag.FoodAndDrink))
         categoryList.add(CategoryItem(getString(R.string.general),CategoryItemType.CATEGORY_GENERAL,AppConstants.CategoryTag.General))
         categoryList.add(CategoryItem(getString(R.string.history_and_holidays),CategoryItemType.CATEGORY_HISTORY_AND_HOLIDAYS,AppConstants.CategoryTag.HistoryAndHolidays))
         categoryList.add(CategoryItem(getString(R.string.kids),CategoryItemType.CATEGORY_KIDS,AppConstants.CategoryTag.Kids))
@@ -59,10 +57,8 @@ class MainActivity : AppCompatActivity() {
         categoryList.add(CategoryItem(getString(R.string.sports_and_leisure),CategoryItemType.CATEGORY_SPORTS_AND_LEISURE,AppConstants.CategoryTag.SportsAndLeisure))
         categoryList.add(CategoryItem(getString(R.string.tech_and_video_games),CategoryItemType.CATEGORY_TECH_AND_VIDEO_GAMES,AppConstants.CategoryTag.TechAndVideoGames))
         categoryList.add(CategoryItem(getString(R.string.toys_and_games),CategoryItemType.CATEGORY_TOYS_AND_GAMES,AppConstants.CategoryTag.ToysAndGames))
-
         categoryItemAdapter.submitList(categoryList)
     }
-
 
     val listener = RecyclerItemClickListener{
         when(it.id){

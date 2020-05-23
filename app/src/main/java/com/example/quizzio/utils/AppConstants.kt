@@ -1,8 +1,5 @@
 package com.example.quizzio.utils
 
-import com.example.quizzio.views.fragments.EntertainmentFragment
-import com.example.quizzio.views.fragments.HomeFragment
-
 object AppConstants {
 
     const val BASE_URL = "https://quizikal.herokuapp.com/api/v1/"
@@ -10,6 +7,7 @@ object AppConstants {
     var categoryType = "categoryType"
     var categoryTag = "categoryTag"
     var colorId = "colorId"
+    var quizData = "quizData"
 
     object CategoryTag{
         var Entertainment = "Entertainment"
@@ -17,7 +15,7 @@ object AppConstants {
         var General = "General"
         var SportsAndLeisure = "Sports and Leisure"
         var HistoryAndHolidays = "History and Holidays"
-        var FoodAndDrink = "Food and Drinks"
+        var FoodAndDrinks = "Food and Drinks"
         var ToysAndGames = "Toys and Games"
         var ScienceAndNature = "Science and Nature"
         var PeopleAndPlaces = "People and Places"
