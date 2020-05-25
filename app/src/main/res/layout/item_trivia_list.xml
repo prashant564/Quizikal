@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<layout>
+    <data>
+        <variable
+            name="trivia"
+            type="com.example.quizzio.views.ui.TriviaUI" />
+    </data>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cv_main"
@@ -18,7 +23,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
         android:maxLines="2"
-        android:text=""
+        android:text="@{trivia.question}"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,10 +35,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text=""
+        android:text="@{trivia.category}"
         android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_question" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

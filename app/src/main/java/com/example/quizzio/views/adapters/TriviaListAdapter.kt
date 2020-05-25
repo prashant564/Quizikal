@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quizzio.R
+import com.example.quizzio.databinding.ItemTriviaListBinding
 import com.example.quizzio.utils.AppUtils
 import com.example.quizzio.utils.ResourceUtils
 import com.example.quizzio.views.listeners.RecyclerItemClickListener
@@ -27,23 +28,22 @@ class TriviaListAdapter(var listener: RecyclerItemClickListener):
     }
 
 
-    class TriviaListItemViewHolder private constructor(val view: View):RecyclerView.ViewHolder(view) {
+    class TriviaListItemViewHolder(val binding: ItemTriviaListBinding):RecyclerView.ViewHolder(binding.root) {
         fun bind(item:TriviaUI, listener: RecyclerItemClickListener) {
-            view.tv_question.text = item.question
-            view.tv_category.text = item.category
-
-            val background = view.cv_main.background as GradientDrawable
+            binding.trivia=item
+            val background = binding.cvMain.background as GradientDrawable
             background.setColor(ResourceUtils.toColor(AppUtils.getColorIdFromCategoryType(item.category)))
-            view.cv_main.tag = item
-            view.cv_main.setOnClickListener {
+            binding.cvMain.tag = item
+            binding.cvMain.setOnClickListener {
                 listener.onItemClick(it)
             }
         }
 
         companion object {
             fun from(parent: ViewGroup): TriviaListItemViewHolder {
-                var view =LayoutInflater.from(parent.context).inflate(R.layout.item_trivia_list,parent,false)
-                return TriviaListItemViewHolder(view)
+                var view =LayoutInflater.from(parent.context)
+                val binding = ItemTriviaListBinding.inflate(view,parent,false)
+                return TriviaListItemViewHolder(binding)
             }
         }
     }

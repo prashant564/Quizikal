@@ -22,5 +22,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="unsolved">Unsolved</string>
+    <string name="answer">Answer</string>
+    <string name="submit">Submit</string>
+    <string name="show_hint">Show hint</string>
+    <string name="reveal_answer">Reveal Answer</string>
 
 </resources>

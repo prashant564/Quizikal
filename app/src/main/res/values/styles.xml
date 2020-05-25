@@ -30,4 +30,9 @@
         <item name="android:layout_marginTop">6dp</item>
     </style>
 
+    <style name="btn_style" parent="MontserratTextView">
+        <item name="android:background">@drawable/btn_round</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>

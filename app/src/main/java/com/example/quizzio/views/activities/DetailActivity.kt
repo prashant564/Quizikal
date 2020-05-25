@@ -31,10 +31,7 @@ class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
-        val extras = intent.extras
-        val type = extras?.getParcelable<CategoryItemType>(AppConstants.categoryType)
-        categoryTag = extras?.getString("category")
-        colorId = type!!.color
+        initParcelableItems()
         supportActionBar?.setBackgroundDrawable(ColorDrawable(ResourceUtils.toColor(colorId)))
         supportActionBar?.title=categoryTag
         val repository = TriviaRepository(TriviaDatabase.invoke(this))
@@ -49,7 +46,6 @@ class DetailActivity : AppCompatActivity() {
                     is Resource.Success -> {
                         response.data?.let {
                             triviaListAdapter.submitList(it)
-                            Log.d("Detail Activity", "$it")
                         }
                     }
                 }
@@ -62,7 +58,6 @@ class DetailActivity : AppCompatActivity() {
             R.id.cv_main->{
                 val tag = it.tag as TriviaUI
                 navigateToAnswerActivity(tag)
-
             }
         }
     }
@@ -78,5 +73,12 @@ class DetailActivity : AppCompatActivity() {
         val intent = Intent(this,AnswerActivity::class.java)
         intent.putExtras(bundle)
         startActivity(intent)
+    }
+
+    private fun initParcelableItems() {
+        val extras = intent.extras
+        val type = extras?.getParcelable<CategoryItemType>(AppConstants.categoryType)
+        categoryTag = extras?.getString("category")
+        colorId = type!!.color
     }
 }
