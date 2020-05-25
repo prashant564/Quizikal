@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Quizzio</string>
+    <string name="app_name">Quizikal</string>
     <string name="something_went_wrong">Something went wrong. Please try after some time</string>
 
     // Category
@@ -26,5 +26,6 @@
     <string name="submit">Submit</string>
     <string name="show_hint">Show hint</string>
     <string name="reveal_answer">Reveal Answer</string>
+    <string name="categories">Categories</string>
 
 </resources>

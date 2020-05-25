@@ -7,7 +7,7 @@
     <application
         android:name=".BaseApp"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/background_splash"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -17,10 +17,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".views.activities.MainActivity"/>
         </activity>
-        <activity android:name=".views.activities.DetailActivity" />
+        <activity android:name=".views.activities.DetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".views.activities.MainActivity"/>
+        </activity>
         <activity android:name=".views.activities.SignInActivity" />
         <activity android:name=".views.activities.MainActivity" />
-        <activity android:name=".views.activities.SplashActivity">
+        <activity android:name=".views.activities.SplashActivity"
+                  android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

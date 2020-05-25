@@ -1,10 +1,13 @@
 package com.example.quizzio.views.activities
 
 import android.content.Intent
+import android.graphics.PorterDuff
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.quizzio.R
@@ -43,10 +46,18 @@ class DetailActivity : AppCompatActivity() {
         viewModel.allTrivia.observe(this,
             Observer { response ->
                 when(response){
+                    is Resource.Loading -> {
+                        showProgressBar()
+                    }
                     is Resource.Success -> {
                         response.data?.let {
+                            hideProgressBar()
                             triviaListAdapter.submitList(it)
                         }
+                    }
+                    is Resource.Failure -> {
+                        hideProgressBar()
+                        showToast(getString(R.string.something_went_wrong))
                     }
                 }
             }
@@ -80,5 +91,19 @@ class DetailActivity : AppCompatActivity() {
         val type = extras?.getParcelable<CategoryItemType>(AppConstants.categoryType)
         categoryTag = extras?.getString("category")
         colorId = type!!.color
+    }
+
+    private fun showProgressBar() {
+        progressBar.visibility = View.VISIBLE
+        progressBar.indeterminateDrawable
+            .setColorFilter(ResourceUtils.toColor(colorId), PorterDuff.Mode.SRC_IN )
+    }
+
+    private fun hideProgressBar() {
+        progressBar.visibility = View.GONE
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(baseContext, message , Toast.LENGTH_LONG).show()
     }
 }
