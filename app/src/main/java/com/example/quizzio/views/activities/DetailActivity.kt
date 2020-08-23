@@ -5,9 +5,9 @@ import android.graphics.PorterDuff
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.quizzio.R
@@ -17,12 +17,13 @@ import com.example.quizzio.repository.TriviaRepository
 import com.example.quizzio.utils.AppConstants
 import com.example.quizzio.utils.ResourceUtils
 import com.example.quizzio.views.adapters.TriviaListAdapter
+import com.example.quizzio.views.fragments.AnswerFragment
+import com.example.quizzio.views.fragments.QuestionsFragment
 import com.example.quizzio.views.listeners.RecyclerItemClickListener
 import com.example.quizzio.views.ui.CategoryItemType
 import com.example.quizzio.views.ui.TriviaUI
 import com.example.quizzio.views.viewmodelFactory.TriviaViewModelFactory
 import com.example.quizzio.views.viewmodels.HomeViewModel
-import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailActivity : AppCompatActivity() {
 
@@ -37,53 +38,25 @@ class DetailActivity : AppCompatActivity() {
         initParcelableItems()
         supportActionBar?.setBackgroundDrawable(ColorDrawable(ResourceUtils.toColor(colorId)))
         supportActionBar?.title=categoryTag
-        val repository = TriviaRepository(TriviaDatabase.invoke(this))
-        val factory = TriviaViewModelFactory(repository, categoryTag!!)
-        viewModel = ViewModelProviders.of(this, factory).get(HomeViewModel::class.java)
-
-        triviaListAdapter = TriviaListAdapter(listener)
-        rv_trivia.adapter=triviaListAdapter
-        viewModel.allTrivia.observe(this,
-            Observer { response ->
-                when(response){
-                    is Resource.Loading -> {
-                        showProgressBar()
-                    }
-                    is Resource.Success -> {
-                        response.data?.let {
-                            hideProgressBar()
-                            triviaListAdapter.submitList(it)
-                        }
-                    }
-                    is Resource.Failure -> {
-                        hideProgressBar()
-                        showToast(getString(R.string.something_went_wrong))
-                    }
-                }
-            }
-        )
-    }
-
-    val listener = RecyclerItemClickListener{
-        when(it.id){
-            R.id.cv_main->{
-                val tag = it.tag as TriviaUI
-                navigateToAnswerActivity(tag)
-            }
-        }
-    }
-
-    private fun navigateToAnswerActivity(tag: TriviaUI){
+        val fragment = QuestionsFragment()
         val bundle = Bundle()
+        bundle.putInt(AppConstants.colorId,colorId)
+        bundle.putString(AppConstants.categoryTag,categoryTag)
+        fragment.arguments=bundle
+        supportFragmentManager.beginTransaction()
+            .add(R.id.fragment_container,fragment)
+            .commit()
+    }
+
+    fun navigateToAnswerFragment(tag: TriviaUI){
+        val bundle = Bundle()
+        val fragment=AnswerFragment()
         bundle.putParcelable(AppConstants.quizData,tag)
         bundle.putInt(AppConstants.colorId,colorId)
-        startAnswerActivity(bundle)
-    }
-
-    private fun startAnswerActivity(bundle: Bundle){
-        val intent = Intent(this,AnswerActivity::class.java)
-        intent.putExtras(bundle)
-        startActivity(intent)
+        fragment.arguments=bundle
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container,fragment)
+            .commit()
     }
 
     private fun initParcelableItems() {
@@ -91,19 +64,5 @@ class DetailActivity : AppCompatActivity() {
         val type = extras?.getParcelable<CategoryItemType>(AppConstants.categoryType)
         categoryTag = extras?.getString("category")
         colorId = type!!.color
-    }
-
-    private fun showProgressBar() {
-        progressBar.visibility = View.VISIBLE
-        progressBar.indeterminateDrawable
-            .setColorFilter(ResourceUtils.toColor(colorId), PorterDuff.Mode.SRC_IN )
-    }
-
-    private fun hideProgressBar() {
-        progressBar.visibility = View.GONE
-    }
-
-    private fun showToast(message: String) {
-        Toast.makeText(baseContext, message , Toast.LENGTH_LONG).show()
     }
 }

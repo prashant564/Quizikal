@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+
 <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -103,11 +105,11 @@
 
         <Button
             android:id="@+id/btn_submit"
-            style=""
+            style="@style/btn_show_style"
+            android:background="@drawable/button_rectangular"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
-            android:background="@drawable/button_rectangular"
             android:text="@string/submit"
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toStartOf="@+id/endguideline"
@@ -123,6 +125,7 @@
             android:layout_marginTop="16dp"
             android:text="@string/show_hint"
             android:visibility="visible"
+            android:padding="8dp"
             android:background="@drawable/button_rectangular"
             app:layout_constraintEnd_toStartOf="@+id/endguideline"
             app:layout_constraintStart_toStartOf="@+id/startguideline"
@@ -145,13 +148,14 @@
 
         <Button
             android:id="@+id/btn_show_answer"
+            android:background="@drawable/button_rectangular"
             style="@style/btn_show_style"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:layout_marginTop="16dp"
             android:text="@string/reveal_answer"
             android:visibility="visible"
-            android:background="@drawable/button_rectangular"
+            android:padding="8dp"
             app:layout_constraintEnd_toStartOf="@+id/endguideline"
             app:layout_constraintStart_toStartOf="@+id/startguideline"
             app:layout_constraintTop_toBottomOf="@+id/tv_hint" />
@@ -180,3 +184,4 @@
             app:layout_constraintGuide_percent="0.5" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
+</layout>
