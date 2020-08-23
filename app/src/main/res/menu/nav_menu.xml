@@ -3,6 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/menu_favourites"
+        android:icon="@drawable/ic_favorites_posts"
+        app:showAsAction="ifRoom"
+        android:title="" />
+    <item
         android:id="@+id/menu_sign_out"
         android:icon="@drawable/ic_logout"
         app:showAsAction="ifRoom"

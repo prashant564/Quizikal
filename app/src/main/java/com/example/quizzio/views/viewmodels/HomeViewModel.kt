@@ -35,13 +35,11 @@ class HomeViewModel(private val triviaRepository: TriviaRepository, private val 
     fun getAllTrivia() =
         viewModelScope.launch {
         allTrivia.postValue(Resource.Loading())
-
         val trivia = triviaRepository.getAllTrivia(category)
         trivia.enqueue(object : Callback<List<TriviaUI>> {
             override fun onFailure(call: Call<List<TriviaUI>?>, t: Throwable) {
                 allTrivia.postValue(Resource.Failure(t.message.toString()))
             }
-
             override fun onResponse(
                 call: Call<List<TriviaUI>?>,
                 response: Response<List<TriviaUI>?>
@@ -52,8 +50,11 @@ class HomeViewModel(private val triviaRepository: TriviaRepository, private val 
                     }
                 }
             }
-
         })
+    }
+
+    fun insertTrivia(triviaUI: TriviaUI)=viewModelScope.launch {
+        triviaRepository.insertTrivia(triviaUI)
     }
 }
 

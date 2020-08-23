@@ -27,5 +27,6 @@
     <string name="show_hint">Show hint</string>
     <string name="reveal_answer">Reveal Answer</string>
     <string name="categories">Categories</string>
+    <string name="favorite">Favorites</string>
 
 </resources>

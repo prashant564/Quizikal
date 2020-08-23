@@ -80,6 +80,7 @@ class MainActivity : AppCompatActivity() {
     private fun startDetailActivity(bundle: Bundle){
         val intent = Intent(this,DetailActivity::class.java)
         intent.putExtras(bundle)
+        intent.putExtra(AppConstants.fragmentTag,AppConstants.FragmentTag.QuestionsFragment)
         startActivity(intent)
     }
 
@@ -90,6 +91,11 @@ class MainActivity : AppCompatActivity() {
                 signOut()
                 FirebaseAuth.getInstance().signOut()
                 val intent = Intent(this, SignInActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.menu_favourites -> {
+                val intent = Intent(this,DetailActivity::class.java)
+                intent.putExtra(AppConstants.fragmentTag,AppConstants.FragmentTag.FavoritesFragment)
                 startActivity(intent)
             }
         }

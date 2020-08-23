@@ -8,8 +8,10 @@ class TriviaRepository(private val db: TriviaDatabase) {
 
     suspend fun getAllTrivia(category: String) = RetrofitClientInstance.api.getTriviaFromNetwork(category)
 
-    fun getUserSolvedTrivia() = db.TriviaDao().getAllTrivia()
-
     suspend fun insertTrivia(triviaUI: TriviaUI) = db.TriviaDao().insertTrivia(triviaUI)
+
+    suspend fun deleteTrivia(triviaUI: TriviaUI) = db.TriviaDao().deleteTrivia(triviaUI)
+
+    fun getAllFavTrivia() = db.TriviaDao().getAllTrivia()
 
 }
