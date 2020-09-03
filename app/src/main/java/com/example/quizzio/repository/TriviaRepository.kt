@@ -13,5 +13,4 @@ class TriviaRepository(private val db: TriviaDatabase) {
     suspend fun deleteTrivia(triviaUI: TriviaUI) = db.TriviaDao().deleteTrivia(triviaUI)
 
     fun getAllFavTrivia() = db.TriviaDao().getAllTrivia()
-
 }
