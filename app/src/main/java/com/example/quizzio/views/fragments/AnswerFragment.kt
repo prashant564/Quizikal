@@ -13,6 +13,7 @@ import com.example.quizzio.database.TriviaDatabase
 import com.example.quizzio.databinding.FragmentAnswerBinding
 import com.example.quizzio.repository.TriviaRepository
 import com.example.quizzio.utils.AppConstants
+import com.example.quizzio.utils.FirebaseUtils
 import com.example.quizzio.views.ui.TriviaUI
 import com.example.quizzio.views.viewmodelFactory.TriviaViewModelFactory
 import com.example.quizzio.views.viewmodels.HomeViewModel
@@ -40,9 +41,11 @@ class AnswerFragment : Fragment() {
 
             btnShowHint.setOnClickListener {
                 tvHint.visibility= View.VISIBLE
+                FirebaseUtils.sendClickEvent(FirebaseUtils.ACTION.HINT_BTN)
             }
             btnShowAnswer.setOnClickListener {
                 tvAnswer.visibility = View.VISIBLE
+                FirebaseUtils.sendClickEvent(FirebaseUtils.ACTION.REVEAL_ANS_BTN)
             }
             btnSubmit.setOnClickListener {
                 if(checkAnswer(editText.text.toString(),trivia!!.answer)){
@@ -50,10 +53,12 @@ class AnswerFragment : Fragment() {
                 }else{
                     Toast.makeText(context,"Sorry, but that's not correct. Better luck next time", Toast.LENGTH_SHORT).show()
                 }
+                FirebaseUtils.sendClickEvent(FirebaseUtils.ACTION.SUBMIT_BTN)
             }
             floatingActionButton.setOnClickListener {
                 viewmodel.insertTrivia(trivia!!)
                 Toast.makeText(context,"Added to Favourites!!",Toast.LENGTH_SHORT).show()
+                FirebaseUtils.sendClickEvent(FirebaseUtils.ACTION.FAB_ADD_TO_FAVOURITES)
             }
         }
         return binding.root

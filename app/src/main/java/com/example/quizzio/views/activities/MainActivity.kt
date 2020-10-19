@@ -8,6 +8,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quizzio.R
 import com.example.quizzio.utils.AppConstants
+import com.example.quizzio.utils.FirebaseUtils
 import com.example.quizzio.views.adapters.CategoryItemAdapter
 import com.example.quizzio.views.listeners.RecyclerItemClickListener
 import com.example.quizzio.views.ui.CategoryItem
@@ -64,12 +65,17 @@ class MainActivity : AppCompatActivity() {
         when(it.id){
             R.id.cv_main->{
                 val tag = it.tag as CategoryItem
+                sendClickEvent(tag.itemType)
                 navigateToDetailActivity(tag)
             }
         }
     }
 
-
+    private fun sendClickEvent(itemType: CategoryItemType){
+        val bundle = Bundle()
+        bundle.putString(FirebaseUtils.PARAM.FEATURE_TYPE.name,itemType.type)
+        FirebaseUtils.sendClickEvents(FirebaseUtils.Event.FEATURE_CLICK,bundle)
+    }
     private fun navigateToDetailActivity(tag: CategoryItem){
         val bundle = Bundle()
         bundle.putParcelable(AppConstants.categoryType,tag.itemType)
@@ -88,12 +94,14 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.menu_sign_out -> {
+                FirebaseUtils.sendClickEvent(FirebaseUtils.ACTION.SIGN_OUT)
                 signOut()
                 FirebaseAuth.getInstance().signOut()
                 val intent = Intent(this, SignInActivity::class.java)
                 startActivity(intent)
             }
             R.id.menu_favourites -> {
+                FirebaseUtils.sendClickEvent(FirebaseUtils.ACTION.FAVOURITES)
                 val intent = Intent(this,DetailActivity::class.java)
                 intent.putExtra(AppConstants.fragmentTag,AppConstants.FragmentTag.FavoritesFragment)
                 startActivity(intent)

@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quizzio.R
+import com.example.quizzio.utils.FirebaseUtils
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -44,6 +45,7 @@ class SignInActivity : AppCompatActivity() {
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
         btn_sign_in.setOnClickListener { view: View? ->
             signIn()
+            FirebaseUtils.sendClickEvent(FirebaseUtils.ACTION.SIGN_IN)
         }
     }
 
