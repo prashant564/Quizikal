@@ -1,11 +1,14 @@
 package com.example.quizzio.views.fragments
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import com.example.quizzio.R
@@ -14,9 +17,11 @@ import com.example.quizzio.databinding.FragmentAnswerBinding
 import com.example.quizzio.repository.TriviaRepository
 import com.example.quizzio.utils.AppConstants
 import com.example.quizzio.utils.FirebaseUtils
+import com.example.quizzio.views.activities.DetailActivity
 import com.example.quizzio.views.ui.TriviaUI
 import com.example.quizzio.views.viewmodelFactory.TriviaViewModelFactory
 import com.example.quizzio.views.viewmodels.HomeViewModel
+import kotlinx.android.synthetic.main.fragment_answer.*
 
 class AnswerFragment : Fragment() {
     lateinit var binding: FragmentAnswerBinding
@@ -48,10 +53,11 @@ class AnswerFragment : Fragment() {
                 FirebaseUtils.sendClickEvent(FirebaseUtils.ACTION.REVEAL_ANS_BTN)
             }
             btnSubmit.setOnClickListener {
+                hideKeyboard()
                 if(checkAnswer(editText.text.toString(),trivia!!.answer)){
-                    Toast.makeText(context,"Yay!! Thats the correct answer. Well Done!!", Toast.LENGTH_SHORT).show()
+                    showAlertDialog(getString(R.string.winner_msg))
                 }else{
-                    Toast.makeText(context,"Sorry, but that's not correct. Better luck next time", Toast.LENGTH_SHORT).show()
+                    showAlertDialog(getString(R.string.loser_msg))
                 }
                 FirebaseUtils.sendClickEvent(FirebaseUtils.ACTION.SUBMIT_BTN)
             }
@@ -62,6 +68,20 @@ class AnswerFragment : Fragment() {
             }
         }
         return binding.root
+    }
+
+    private fun showAlertDialog(message:String) {
+        val alertDialog: AlertDialog.Builder = AlertDialog.Builder(context!!)
+        alertDialog.setTitle("App Info")
+        alertDialog.setMessage(message)
+        alertDialog.setPositiveButton(
+            "OK"
+        ) { _, _ ->
+            Toast.makeText(context, "Alert dialog closed.", Toast.LENGTH_LONG).show()
+        }
+        val alert: AlertDialog = alertDialog.create()
+        alert.setCanceledOnTouchOutside(false)
+        alert.show()
     }
 
     private fun createHint(hint: CharArray): String{
@@ -85,6 +105,11 @@ class AnswerFragment : Fragment() {
 
     private fun checkAnswer(userInput:String,answer:String):Boolean{
         return userInput.toLowerCase() == answer.toLowerCase()
+    }
+
+    private fun hideKeyboard(){
+        val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(editText.windowToken, InputMethodManager.RESULT_UNCHANGED_SHOWN)
     }
 
 }

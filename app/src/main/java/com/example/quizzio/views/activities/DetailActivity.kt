@@ -74,4 +74,11 @@ class DetailActivity : AppCompatActivity() {
             .replace(R.id.fragment_container,fragment)
             .commit()
     }
+
+    fun navigateToQuestionsFragment(){
+        val fragment=QuestionsFragment()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container,fragment)
+            .commit()
+    }
 }
