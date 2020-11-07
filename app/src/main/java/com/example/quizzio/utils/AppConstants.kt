@@ -5,6 +5,7 @@ import com.example.quizzio.views.fragments.AnswerFragment
 object AppConstants {
 
     const val BASE_URL = "https://quizikal.herokuapp.com/api/v1/"
+    const val TRIVIA_LIMIT = 15
 
     var categoryType = "categoryType"
     var categoryTag = "categoryTag"

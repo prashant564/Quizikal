@@ -14,7 +14,7 @@
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="1dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/progressBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,10 +23,10 @@
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/rv_trivia"
-        app:layout_constraintStart_toStartOf="@+id/rv_trivia"
-        app:layout_constraintTop_toTopOf="@+id/rv_trivia" />
+        app:layout_constraintStart_toStartOf="@+id/rv_trivia" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

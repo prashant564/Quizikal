@@ -8,8 +8,8 @@ import retrofit2.http.Query
 
 interface TriviaAPI {
         @GET("trivia")
-    suspend fun getTriviaFromNetwork(@Query("category") type: String):
-            Response<List<TriviaUI>>
+    suspend fun getTriviaFromNetwork(@Query("category") type: String, @Query("page") page: Int=1, @Query("limit") limit: Int):
+            Response<MutableList<TriviaUI>>
 
     
 }

@@ -6,7 +6,7 @@ import com.example.quizzio.views.ui.TriviaUI
 
 class TriviaRepository(private val db: TriviaDatabase) {
 
-    suspend fun getAllTrivia(category: String) = RetrofitClientInstance.api.getTriviaFromNetwork(category)
+    suspend fun getAllTrivia(category: String, page:Int, limit:Int) = RetrofitClientInstance.api.getTriviaFromNetwork(category,page,limit)
 
     suspend fun insertTrivia(triviaUI: TriviaUI) = db.TriviaDao().insertTrivia(triviaUI)
 
