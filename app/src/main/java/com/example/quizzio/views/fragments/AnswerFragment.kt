@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
@@ -16,6 +17,7 @@ import com.example.quizzio.database.TriviaDatabase
 import com.example.quizzio.databinding.FragmentAnswerBinding
 import com.example.quizzio.repository.TriviaRepository
 import com.example.quizzio.utils.AppConstants
+import com.example.quizzio.utils.AppUtils.createHint
 import com.example.quizzio.utils.FirebaseUtils
 import com.example.quizzio.views.activities.DetailActivity
 import com.example.quizzio.views.ui.TriviaUI
@@ -33,6 +35,7 @@ class AnswerFragment : Fragment() {
         var factory = TriviaViewModelFactory(repository,"Entertainment")
         ViewModelProviders.of(this,factory).get(HomeViewModel::class.java)
     }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_answer, container, false)
         binding.lifecycleOwner=this
@@ -43,12 +46,13 @@ class AnswerFragment : Fragment() {
             tvHint.text=createHint(hint)
             tvQues.text=trivia!!.question
             tvAnswer.text=trivia!!.answer
-
             btnShowHint.setOnClickListener {
+                hideKeyboard()
                 tvHint.visibility= View.VISIBLE
                 FirebaseUtils.sendClickEvent(FirebaseUtils.ACTION.HINT_BTN)
             }
             btnShowAnswer.setOnClickListener {
+                hideKeyboard()
                 tvAnswer.visibility = View.VISIBLE
                 FirebaseUtils.sendClickEvent(FirebaseUtils.ACTION.REVEAL_ANS_BTN)
             }
@@ -84,25 +88,6 @@ class AnswerFragment : Fragment() {
         alert.show()
     }
 
-    private fun createHint(hint: CharArray): String{
-        var hintString=""
-        for( i in hint.indices step 2) {
-            if(hint[i]==' '){
-                hintString+=' '
-            }else{
-                hintString+=hint[i]
-            }
-            if(i+1<hint.size){
-                if(hint[i+1]!=' ') {
-                    hintString+='_'
-                }else{
-                    hintString+=' '
-                }
-            }
-        }
-        return hintString
-    }
-
     private fun checkAnswer(userInput:String,answer:String):Boolean{
         return userInput.toLowerCase() == answer.toLowerCase()
     }
@@ -111,5 +96,4 @@ class AnswerFragment : Fragment() {
         val imm = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(editText.windowToken, InputMethodManager.RESULT_UNCHANGED_SHOWN)
     }
-
 }

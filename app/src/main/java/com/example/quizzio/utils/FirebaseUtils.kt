@@ -5,7 +5,7 @@ import com.example.quizzio.BaseApp
 import com.google.firebase.analytics.FirebaseAnalytics
 
 object FirebaseUtils {
-    private var mFirebaseAnalytics = FirebaseAnalytics.getInstance(BaseApp.context)
+    var mFirebaseAnalytics = FirebaseAnalytics.getInstance(BaseApp.context)
     enum class Event{
         FEATURE_CLICK,
         CLICK
@@ -16,7 +16,10 @@ object FirebaseUtils {
     }
 
     enum class ACTION{
-        FAVOURITES, SIGN_OUT, SUBMIT_BTN, HINT_BTN, REVEAL_ANS_BTN, FAB_ADD_TO_FAVOURITES, SIGN_IN
+        FAVOURITES, SIGN_OUT, SUBMIT_BTN, HINT_BTN, REVEAL_ANS_BTN, FAB_ADD_TO_FAVOURITES, SIGN_IN,
+//        ENTERTAINMENT, MUSIC, GENERAL, SPORTSANDLEISURE, HISTORYANDHOLIDAYS, FOODANDRINKS,
+//        TOYSANDGAMES, SCIENCEANDNATURE,PEOPLEANDPLACES, LANGUAGE, KIDS, RELIGIONANDMYTHOLOGY,
+//        ARTANDLITERATURE, TECHANDVIDEOGAMES, MATHEMATICS
     }
 
     fun sendClickEvents(event:Event,bundle:Bundle){

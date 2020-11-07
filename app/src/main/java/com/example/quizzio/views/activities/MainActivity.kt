@@ -16,6 +16,7 @@ import com.example.quizzio.views.ui.CategoryItemType
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var mGoogleSignInClient: GoogleSignInClient
     lateinit var categoryItemAdapter: CategoryItemAdapter
+    var mfirebaseAnalytics = FirebaseAnalytics.getInstance(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -71,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun sendClickEvent(itemType: CategoryItemType){
+    private fun sendClickEvent(itemType : CategoryItemType){
         val bundle = Bundle()
         bundle.putString(FirebaseUtils.PARAM.FEATURE_TYPE.name,itemType.type)
         FirebaseUtils.sendClickEvents(FirebaseUtils.Event.FEATURE_CLICK,bundle)
@@ -107,7 +109,6 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-
         return super.onOptionsItemSelected(item)
     }
 

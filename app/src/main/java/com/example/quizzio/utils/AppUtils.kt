@@ -80,4 +80,23 @@ object AppUtils {
 
         }
     }
+
+    fun createHint(hint: CharArray): String{
+        var hintString=""
+        for( i in hint.indices step 2) {
+            if(hint[i]==' '){
+                hintString+=' '
+            }else{
+                hintString+=hint[i]
+            }
+            if(i+1<hint.size){
+                if(hint[i+1]!=' ') {
+                    hintString+='_'
+                }else{
+                    hintString+=' '
+                }
+            }
+        }
+        return hintString
+    }
 }

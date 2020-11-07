@@ -65,7 +65,7 @@ class QuestionsFragment : Fragment() {
         return root
     }
 
-    val listener = RecyclerItemClickListener{
+    private val listener = RecyclerItemClickListener{
         when(it.id){
             R.id.cv_main->{
                 val tag = it.tag as TriviaUI
