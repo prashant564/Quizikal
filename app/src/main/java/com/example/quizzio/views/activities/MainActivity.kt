@@ -5,9 +5,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.quizzio.R
 import com.example.quizzio.utils.AppConstants
+import com.example.quizzio.utils.BannerAdUtil
 import com.example.quizzio.utils.FirebaseUtils
 import com.example.quizzio.views.adapters.CategoryItemAdapter
 import com.example.quizzio.views.listeners.RecyclerItemClickListener
@@ -37,6 +40,7 @@ class MainActivity : AppCompatActivity() {
             .requestEmail()
             .build()
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
+        loadBanner()
     }
 
     private fun initRecyclerView() {
@@ -78,6 +82,30 @@ class MainActivity : AppCompatActivity() {
         bundle.putString(FirebaseUtils.PARAM.FEATURE_TYPE.name,itemType.type)
         FirebaseUtils.sendClickEvents(FirebaseUtils.Event.FEATURE_CLICK,bundle)
     }
+
+    private fun loadBanner() {
+        val bannerAd = BannerAdUtil.getBannerAdView(this)
+        val adViewId = 100
+        bannerAd.id = adViewId
+
+        val params = ConstraintLayout.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        params.endToEnd = ConstraintLayout.LayoutParams.PARENT_ID
+        params.bottomToBottom = ConstraintLayout.LayoutParams.PARENT_ID
+        params.startToStart = ConstraintLayout.LayoutParams.PARENT_ID
+        bannerAd.layoutParams = params
+        cl_main.addView(bannerAd)
+
+        val recyclerViewParams = rv_category_list.layoutParams as ConstraintLayout.LayoutParams
+        recyclerViewParams.bottomToTop = adViewId
+        rv_category_list.layoutParams = recyclerViewParams
+
+        val request = BannerAdUtil.getAdRequest()
+        bannerAd.loadAd(request)
+    }
+
     private fun navigateToDetailActivity(tag: CategoryItem){
         val bundle = Bundle()
         bundle.putParcelable(AppConstants.categoryType,tag.itemType)
