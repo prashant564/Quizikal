@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "848249745797",
-    "firebase_url": "https://quizikal-5a25d.firebaseio.com",
-    "project_id": "quizikal-5a25d",
-    "storage_bucket": "quizikal-5a25d.appspot.com"
+    "project_number": "232647608669",
+    "firebase_url": "https://quizikal-f20f9.firebaseio.com",
+    "project_id": "quizikal-f20f9",
+    "storage_bucket": "quizikal-f20f9.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:848249745797:android:4b6fba59b3c496475b94ec",
+        "mobilesdk_app_id": "1:232647608669:android:3e8009a53e3c5716a040b4",
         "android_client_info": {
-          "package_name": "com.example.quizzio"
+          "package_name": "com.prashD.quizzio"
         }
       },
       "oauth_client": [
         {
-          "client_id": "848249745797-5l0qpnmrs92165k2jlureee4t1p524ek.apps.googleusercontent.com",
+          "client_id": "232647608669-6i0q758cdfkofreuvhtpo41brgkksn6k.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.quizzio",
+            "package_name": "com.prashD.quizzio",
             "certificate_hash": "7d5462e0a0e25a9cbd5ab895106563ca2a48f3b3"
           }
         },
         {
-          "client_id": "848249745797-60evut6490mglougprfuj5t5ghbtakd4.apps.googleusercontent.com",
+          "client_id": "232647608669-pbiovb22a7tannoeu7n70hdon2pl88c7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCvC1jod6l9xRwUx6aTg5xXtTnP83ywWGU"
+          "current_key": "AIzaSyBoqo-9oMQfWhxwk-1U1I1stPgMOAjaAgs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "848249745797-60evut6490mglougprfuj5t5ghbtakd4.apps.googleusercontent.com",
+              "client_id": "232647608669-pbiovb22a7tannoeu7n70hdon2pl88c7.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -30,5 +30,6 @@
     <string name="favorite">Favorites</string>
     <string name="winner_msg">Yay!! Thats the correct answer. Well Done!!</string>
     <string name="loser_msg">Sorry, but that\'s not correct. Better luck next time</string>
+    <string name="admob_app_id">"ca-app-pub-7898375357923762~5081039356"</string>
 
 </resources>
