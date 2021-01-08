@@ -14,7 +14,7 @@ object AppConstants {
     var fragmentTag = "fragmentTag"
     var launchCount = "launchCount"
 
-    object CategoryTag{
+    object CategoryTag {
         var Entertainment = "Entertainment"
         var Music = "Music"
         var General = "General"
@@ -32,13 +32,13 @@ object AppConstants {
         var Mathematics = "Mathematics"
     }
 
-    object PrefUtils{
+    object PrefUtils {
         var quizikal = "quizikal"
     }
 
-    object FragmentTag{
+    object FragmentTag {
         var AnswerFragment = "AnswerFragment"
         var FavoritesFragment = "FavoritesFragment"
-        var QuestionsFragment= "QuestionsFragment"
+        var QuestionsFragment = "QuestionsFragment"
     }
 }

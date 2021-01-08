@@ -2,12 +2,12 @@ package com.prashD.quizzio.views.fragments
 
 import android.graphics.PorterDuff
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AbsListView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -31,15 +31,20 @@ import kotlinx.android.synthetic.main.fragment_questions.view.*
  * A simple [Fragment] subclass.
  */
 class QuestionsFragment : Fragment() {
-    var category:String?=null
-    var colorId:Int=R.color.entertainment
+    var category: String? = null
+    var colorId: Int = R.color.entertainment
     lateinit var triviaListAdapter: TriviaListAdapter
     val viewmodel by lazy {
         val repository = TriviaRepository(TriviaDatabase.invoke(activity!!.applicationContext))
-        var factory = TriviaViewModelFactory(repository,category!!)
-        ViewModelProviders.of(this,factory).get(HomeViewModel::class.java)
+        var factory = TriviaViewModelFactory(repository, category!!)
+        ViewModelProviders.of(this, factory).get(HomeViewModel::class.java)
     }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_questions, container, false)
         category = arguments!!.getString(AppConstants.categoryTag)
@@ -51,7 +56,7 @@ class QuestionsFragment : Fragment() {
         }
         viewmodel.allTrivia.observe(viewLifecycleOwner,
             Observer { response ->
-                when(response){
+                when (response) {
                     is Resource.Loading -> {
                         showProgressBar()
                     }
@@ -71,9 +76,9 @@ class QuestionsFragment : Fragment() {
         return root
     }
 
-    private val listener = RecyclerItemClickListener{
-        when(it.id){
-            R.id.cv_main->{
+    private val listener = RecyclerItemClickListener {
+        when (it.id) {
+            R.id.cv_main -> {
                 val tag = it.tag as TriviaUI
                 (activity as DetailActivity).navigateToAnswerFragment(tag)
             }
@@ -87,10 +92,11 @@ class QuestionsFragment : Fragment() {
     val scrollListener = object : RecyclerView.OnScrollListener() {
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
-            if(newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL){
-                isScrolling=true
+            if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
+                isScrolling = true
             }
         }
+
         override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
             super.onScrolled(recyclerView, dx, dy)
             val layoutManager = recyclerView.layoutManager as LinearLayoutManager
@@ -103,7 +109,7 @@ class QuestionsFragment : Fragment() {
             val isTotalMoreThanVisible = totalItemCount >= AppConstants.TRIVIA_LIMIT
             val shouldPaginate = isNotLoadingAndNotLastPage && isAtLastItem &&
                     isNotAtBeginning && isTotalMoreThanVisible && isScrolling
-            if(shouldPaginate){
+            if (shouldPaginate) {
                 viewmodel.getAllTrivia()
                 isScrolling = false
             }
@@ -113,7 +119,7 @@ class QuestionsFragment : Fragment() {
     private fun showProgressBar() {
         progressBar.visibility = View.VISIBLE
         progressBar.indeterminateDrawable
-            .setColorFilter(ResourceUtils.toColor(colorId), PorterDuff.Mode.SRC_IN )
+            .setColorFilter(ResourceUtils.toColor(colorId), PorterDuff.Mode.SRC_IN)
         isLoading = true
     }
 
@@ -123,6 +129,6 @@ class QuestionsFragment : Fragment() {
     }
 
     private fun showToast(message: String) {
-        Toast.makeText(context, message , Toast.LENGTH_LONG).show()
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
 }

@@ -7,7 +7,7 @@ import com.prashD.quizzio.views.ui.TriviaUI
 @Dao
 interface TriviaDao {
     @Query("SELECT * FROM trivia")
-    fun getAllTrivia() : LiveData<List<TriviaUI>>
+    fun getAllTrivia(): LiveData<List<TriviaUI>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTrivia(post: TriviaUI)

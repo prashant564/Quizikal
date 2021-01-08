@@ -13,7 +13,7 @@ class FavoriteViewModel(private val triviaRepository: TriviaRepository) : ViewMo
     private var viewModelJob = Job()
     private val coroutineScope = CoroutineScope(viewModelJob + Dispatchers.Main)
     fun getAllFavTrivia() = triviaRepository.getAllFavTrivia()
-    fun deleteTrivia(triviaUI: TriviaUI)=viewModelScope.launch {
+    fun deleteTrivia(triviaUI: TriviaUI) = viewModelScope.launch {
         triviaRepository.deleteTrivia(triviaUI)
     }
 }

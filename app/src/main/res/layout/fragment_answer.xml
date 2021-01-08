@@ -3,198 +3,198 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:scrollbars="vertical">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/answer_main"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/background"
-        tools:context=".views.activities.AnswerActivity">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="vertical">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/startguideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.02" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/endguideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.98" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/answer_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:elevation="4dp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline5"
-            app:layout_constraintEnd_toStartOf="@+id/endguideline"
-            app:layout_constraintStart_toStartOf="@+id/startguideline"
-            app:layout_constraintTop_toTopOf="@+id/guideline3">
+            android:background="@color/background"
+            tools:context=".views.activities.AnswerActivity">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/startguideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.02" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/endguideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.98" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:elevation="4dp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline5"
+                app:layout_constraintEnd_toStartOf="@+id/endguideline"
+                app:layout_constraintStart_toStartOf="@+id/startguideline"
+                app:layout_constraintTop_toTopOf="@+id/guideline3">
 
-                <TextView
-                    android:id="@+id/tv_ques"
-                    style="@style/tv_main_subtitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <View
-                    android:id="@+id/divider"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1.5dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:background="@color/tv_colo_grey_2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_ques" />
+                    android:layout_height="match_parent">
 
-                <EditText
-                    android:id="@+id/editText"
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/et_rectangle"
-                    android:backgroundTint="@color/tv_color_grey4"
-                    android:elevation="6dp"
-                    android:ems="10"
-                    android:hint="@string/answer"
-                    android:inputType="text"
-                    android:paddingLeft="4dp"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="@android:color/white"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/divider" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/tv_ques"
+                        style="@style/tv_main_subtitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.cardview.widget.CardView>
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="1.5dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="@color/tv_colo_grey_2"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_ques" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.1" />
+                    <EditText
+                        android:id="@+id/editText"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/et_rectangle"
+                        android:backgroundTint="@color/tv_color_grey4"
+                        android:elevation="6dp"
+                        android:ems="10"
+                        android:hint="@string/answer"
+                        android:inputType="text"
+                        android:paddingLeft="4dp"
+                        android:textColor="@android:color/white"
+                        android:textColorHint="@android:color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/divider" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <Button
-            android:id="@+id/btn_submit"
-            style="@style/btn_show_style"
-            android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/button_rectangular"
-            android:text="@string/submit"
-            android:textColor="@android:color/white"
-            app:layout_constraintEnd_toStartOf="@+id/endguideline"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/startguideline"
-            app:layout_constraintTop_toTopOf="@+id/guideline5" />
+            </androidx.cardview.widget.CardView>
 
-        <Button
-            android:id="@+id/btn_show_hint"
-            style="@style/btn_show_style"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/show_hint"
-            android:visibility="visible"
-            android:padding="8dp"
-            android:background="@drawable/button_rectangular"
-            app:layout_constraintEnd_toStartOf="@+id/endguideline"
-            app:layout_constraintStart_toStartOf="@+id/startguideline"
-            app:layout_constraintTop_toBottomOf="@+id/btn_submit" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.1" />
 
-        <TextView
-            android:id="@+id/tv_hint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            style="@style/tv_main_subtitle"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:elevation="4dp"
-            android:visibility="gone"
-            android:textColor="@color/text_hint"
-            app:layout_constraintEnd_toStartOf="@+id/endguideline"
-            app:layout_constraintStart_toStartOf="@+id/startguideline"
-            app:layout_constraintTop_toBottomOf="@+id/btn_show_hint" />
+            <Button
+                android:id="@+id/btn_submit"
+                style="@style/btn_show_style"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/button_rectangular"
+                android:text="@string/submit"
+                android:textColor="@android:color/white"
+                app:layout_constraintEnd_toStartOf="@+id/endguideline"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/startguideline"
+                app:layout_constraintTop_toTopOf="@+id/guideline5" />
 
-        <Button
-            android:id="@+id/btn_show_answer"
-            android:background="@drawable/button_rectangular"
-            style="@style/btn_show_style"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/reveal_answer"
-            android:visibility="visible"
-            android:padding="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/endguideline"
-            app:layout_constraintStart_toStartOf="@+id/startguideline"
-            app:layout_constraintTop_toBottomOf="@+id/tv_hint" />
+            <Button
+                android:id="@+id/btn_show_hint"
+                style="@style/btn_show_style"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_rectangular"
+                android:padding="8dp"
+                android:text="@string/show_hint"
+                android:visibility="visible"
+                app:layout_constraintEnd_toStartOf="@+id/endguideline"
+                app:layout_constraintStart_toStartOf="@+id/startguideline"
+                app:layout_constraintTop_toBottomOf="@+id/btn_submit" />
 
-        <TextView
-            android:id="@+id/tv_answer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text=""
-            style="@style/tv_main_subtitle"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:elevation="4dp"
-            android:visibility="gone"
-            android:textColor="@color/text_hint"
-            app:layout_constraintEnd_toStartOf="@+id/endguideline"
-            app:layout_constraintStart_toStartOf="@+id/startguideline"
-            app:layout_constraintTop_toBottomOf="@+id/btn_show_answer" />
+            <TextView
+                android:id="@+id/tv_hint"
+                style="@style/tv_main_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:elevation="4dp"
+                android:textColor="@color/text_hint"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@+id/endguideline"
+                app:layout_constraintStart_toStartOf="@+id/startguideline"
+                app:layout_constraintTop_toBottomOf="@+id/btn_show_hint" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.5" />
+            <Button
+                android:id="@+id/btn_show_answer"
+                style="@style/btn_show_style"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_rectangular"
+                android:padding="8dp"
+                android:text="@string/reveal_answer"
+                android:visibility="visible"
+                app:layout_constraintEnd_toStartOf="@+id/endguideline"
+                app:layout_constraintStart_toStartOf="@+id/startguideline"
+                app:layout_constraintTop_toBottomOf="@+id/tv_hint" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:clickable="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/endguideline"
-            android:backgroundTint="@android:color/holo_red_light"
-            app:srcCompat="@drawable/ic_favorites_posts" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+            <TextView
+                android:id="@+id/tv_answer"
+                style="@style/tv_main_subtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:elevation="4dp"
+                android:text=""
+                android:textColor="@color/text_hint"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@+id/endguideline"
+                app:layout_constraintStart_toStartOf="@+id/startguideline"
+                app:layout_constraintTop_toBottomOf="@+id/btn_show_answer" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@android:color/holo_red_light"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/endguideline"
+                app:srcCompat="@drawable/ic_favorites_posts" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

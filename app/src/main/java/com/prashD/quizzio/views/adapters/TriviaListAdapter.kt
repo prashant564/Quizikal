@@ -12,7 +12,7 @@ import com.prashD.quizzio.utils.ResourceUtils
 import com.prashD.quizzio.views.listeners.RecyclerItemClickListener
 import com.prashD.quizzio.views.ui.TriviaUI
 
-class TriviaListAdapter(var listener: RecyclerItemClickListener):
+class TriviaListAdapter(var listener: RecyclerItemClickListener) :
     ListAdapter<TriviaUI, TriviaListAdapter.TriviaListItemViewHolder>(TriviaItemDiff()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TriviaListItemViewHolder {
         return TriviaListItemViewHolder.from(parent)
@@ -25,9 +25,10 @@ class TriviaListAdapter(var listener: RecyclerItemClickListener):
     }
 
 
-    class TriviaListItemViewHolder(val binding: ItemTriviaListBinding):RecyclerView.ViewHolder(binding.root) {
-        fun bind(item:TriviaUI, listener: RecyclerItemClickListener) {
-            binding.trivia=item
+    class TriviaListItemViewHolder(val binding: ItemTriviaListBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: TriviaUI, listener: RecyclerItemClickListener) {
+            binding.trivia = item
             val background = binding.cvMain.background as GradientDrawable
             background.setColor(ResourceUtils.toColor(AppUtils.getColorIdFromCategoryType(item.category)))
             binding.cvMain.tag = item
@@ -38,8 +39,8 @@ class TriviaListAdapter(var listener: RecyclerItemClickListener):
 
         companion object {
             fun from(parent: ViewGroup): TriviaListItemViewHolder {
-                var view =LayoutInflater.from(parent.context)
-                val binding = ItemTriviaListBinding.inflate(view,parent,false)
+                var view = LayoutInflater.from(parent.context)
+                val binding = ItemTriviaListBinding.inflate(view, parent, false)
                 return TriviaListItemViewHolder(binding)
             }
         }

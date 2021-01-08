@@ -19,7 +19,8 @@ object ResourceUtils {
     fun toColor(colorId: Int): Int {
         return resources.getColor(colorId)
     }
-//
+
+    //
 //    fun toDimen(dimenId: Int): Float {
 //        return resources.getDimension(dimenId)
 //    }

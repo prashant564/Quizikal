@@ -17,11 +17,7 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-7898375357923762~5081039356"/>
-        <activity android:name="com.prashD.quizzio.views.activities.DetailActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.prashD.quizzio.views.activities.MainActivity"/>
-        </activity>
+        <activity android:name="com.prashD.quizzio.views.activities.DetailActivity"/>
         <activity android:name="com.prashD.quizzio.views.activities.MainActivity" />
         <activity android:name="com.prashD.quizzio.views.activities.SplashActivity"
                   android:theme="@style/SplashTheme">

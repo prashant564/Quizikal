@@ -1,13 +1,17 @@
 package com.prashD.quizzio.views.viewmodels
 
-import androidx.lifecycle.*
-import com.prashD.quizzio.views.ui.TriviaUI
-import com.prashD.quizzio.repository.TriviaRepository
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.prashD.quizzio.network.Resource
+import com.prashD.quizzio.repository.TriviaRepository
 import com.prashD.quizzio.utils.AppConstants
+import com.prashD.quizzio.views.ui.TriviaUI
 import kotlinx.coroutines.launch
 
-class HomeViewModel(private val triviaRepository: TriviaRepository, private val category:String) : ViewModel(){
+class HomeViewModel(private val triviaRepository: TriviaRepository, private val category: String) :
+    ViewModel() {
     val allTrivia: MutableLiveData<Resource<MutableList<TriviaUI>>> = MutableLiveData()
     var triviaPage = 1
     var allTriviaResponse: MutableList<TriviaUI>? = null
@@ -19,7 +23,7 @@ class HomeViewModel(private val triviaRepository: TriviaRepository, private val 
 
     init {
         getAllTrivia()
-        _snackMsg.value=""
+        _snackMsg.value = ""
 
     }
 
@@ -30,26 +34,27 @@ class HomeViewModel(private val triviaRepository: TriviaRepository, private val 
     fun getAllTrivia() = viewModelScope.launch {
         allTrivia.postValue(Resource.Loading())
         try {
-            val response = triviaRepository.getAllTrivia(category,triviaPage,AppConstants.TRIVIA_LIMIT)
+            val response =
+                triviaRepository.getAllTrivia(category, triviaPage, AppConstants.TRIVIA_LIMIT)
             if (response.isSuccessful) {
                 response.body()?.let {
                     triviaPage++
-                    if(allTriviaResponse==null){
-                        allTriviaResponse=it
+                    if (allTriviaResponse == null) {
+                        allTriviaResponse = it
                     } else {
-                         val oldTrivia = allTriviaResponse
+                        val oldTrivia = allTriviaResponse
                         val newTrivia = it
                         oldTrivia?.addAll(newTrivia)
                     }
-                    allTrivia.postValue(Resource.Success( allTriviaResponse?: it))
+                    allTrivia.postValue(Resource.Success(allTriviaResponse ?: it))
                 }
             }
-        }catch (e: Exception) {
+        } catch (e: Exception) {
             allTrivia.postValue(Resource.Failure(e.message.toString()))
         }
     }
 
-    fun insertTrivia(triviaUI: TriviaUI)=viewModelScope.launch {
+    fun insertTrivia(triviaUI: TriviaUI) = viewModelScope.launch {
         triviaRepository.insertTrivia(triviaUI)
     }
 }

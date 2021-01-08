@@ -2,7 +2,6 @@ package com.prashD.quizzio.utils
 
 import android.app.Activity
 import android.util.DisplayMetrics
-import com.prashD.quizzio.BuildConfig
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
@@ -24,7 +23,7 @@ object BannerAdUtil {
         return AdRequest.Builder().build()
     }
 
-    private fun getBannerSize(activity: Activity) : AdSize {
+    private fun getBannerSize(activity: Activity): AdSize {
         val display = activity.windowManager.defaultDisplay
         val outMetrics = DisplayMetrics()
         display.getMetrics(outMetrics)

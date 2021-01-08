@@ -11,11 +11,11 @@ import kotlinx.android.parcel.Parcelize
 data class TriviaUI(
     @SerializedName("_id")
     @PrimaryKey
-    val id:String,
-    val seenStatus:Boolean,
-    val category:String,
-    val question:String,
-    val answer:String,
+    val id: String,
+    val seenStatus: Boolean,
+    val category: String,
+    val question: String,
+    val answer: String,
     @SerializedName("itemid")
     val itemId: String
-    ): Parcelable
+) : Parcelable

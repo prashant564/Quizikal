@@ -1,16 +1,15 @@
 package com.prashD.quizzio.views.fragments
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-
+import androidx.lifecycle.ViewModelProviders
 import com.prashD.quizzio.R
 import com.prashD.quizzio.database.TriviaDatabase
-import com.prashD.quizzio.databinding.ItemFavListBinding
 import com.prashD.quizzio.repository.TriviaRepository
 import com.prashD.quizzio.views.activities.DetailActivity
 import com.prashD.quizzio.views.adapters.FavoriteListAdapter

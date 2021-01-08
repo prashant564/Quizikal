@@ -27,11 +27,18 @@ class CategoryItemAdapter(var listener: RecyclerItemClickListener) :
     }
 
 
-    class CategoryItemViewHolder private constructor(val view: View):RecyclerView.ViewHolder(view) {
+    class CategoryItemViewHolder private constructor(val view: View) :
+        RecyclerView.ViewHolder(view) {
         fun bind(categoryItem: CategoryItem, listener: RecyclerItemClickListener) {
 
             view.tv_title.text = categoryItem.title
-            view.iv_icon.setImageDrawable(ResourceUtils.toDrawable(AppUtils.getDrawableIdFromCategoryType(categoryItem.itemType)))
+            view.iv_icon.setImageDrawable(
+                ResourceUtils.toDrawable(
+                    AppUtils.getDrawableIdFromCategoryType(
+                        categoryItem.itemType
+                    )
+                )
+            )
             val background = view.cv_main.background as GradientDrawable
             background.setColor(ResourceUtils.toColor(categoryItem.itemType.color))
 
@@ -43,7 +50,8 @@ class CategoryItemAdapter(var listener: RecyclerItemClickListener) :
 
         companion object {
             fun from(parent: ViewGroup): CategoryItemViewHolder {
-                var view =LayoutInflater.from(parent.context).inflate(R.layout.item_category,parent,false)
+                var view = LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_category, parent, false)
                 return CategoryItemViewHolder(view)
             }
         }
