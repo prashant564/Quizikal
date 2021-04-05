@@ -27,9 +27,7 @@ import com.prashD.quizzio.views.viewmodels.HomeViewModel
 import kotlinx.android.synthetic.main.fragment_questions.*
 import kotlinx.android.synthetic.main.fragment_questions.view.*
 
-/**
- * A simple [Fragment] subclass.
- */
+
 class QuestionsFragment : Fragment() {
     var category: String? = null
     var colorId: Int = R.color.entertainment

@@ -18,8 +18,6 @@ class DetailActivity : AppCompatActivity() {
     var categoryTag: String? = null
     var colorId: Int = R.color.entertainment
     var fragmentTag: String? = null
-    lateinit var triviaListAdapter: TriviaListAdapter
-    lateinit var viewModel: HomeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
